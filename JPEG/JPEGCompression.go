@@ -12,6 +12,17 @@ type yuv struct {
 	v int
 }
 
+var(
+	width int
+	heigth int
+)
+
+type nodeF struct {
+	yF int
+	uF int
+	vF int
+}
+
 func Exec(){
 	file, err := os.Open("img/动物照片.jpg")
 	if err != nil {
@@ -22,15 +33,20 @@ func Exec(){
 		panic(err)
 	}
 	bounds := img.Bounds()
+	width = bounds.Dx()
+	heigth = bounds.Dy()
 	var arr [][]yuv
-	for i := 0; i < bounds.Dx(); i++ {
-		tmp := make([]yuv, bounds.Dy())
+	var F [][]nodeF
+	for i := 0; i < width; i++ {
+		tmp := make([]yuv, heigth)
+		tempF := make([]nodeF, heigth)
 		arr = append(arr, tmp)
+		F = append(F, tempF)
 	}
 
 	// YUV颜色转换
-	for i := 0; i < bounds.Dx(); i++ {
-		for j := 0; j < bounds.Dy(); j++ {
+	for i := 0; i < width; i++ {
+		for j := 0; j < heigth; j++ {
 			r, g, b, _ := img.At(i,j).RGBA()
 			r = r/256
 			g = g/256
@@ -40,9 +56,28 @@ func Exec(){
 		}
 	}
 
-	for i := 0; i < bounds.Dx(); i++ {
-		for j := 0; j < bounds.Dy(); j++ {
+	// 二次采样
+	TwiceSample(arr[:][:])
+
+	// DCT变换
+	for i := 0; i < width/8; i++ {
+		for j:= 0; j < heigth/8; j++ {
+			DCT(i, j, arr[i*8:(i+1)*8][j*8:(j+1)*8],F[i*8:(i+1)*8][j*8:(j+1)*8])
+		}
+	}
+
+
+	for i := 0; i < width; i++ {
+		for j := 0; j < 1; j++ {
 			fmt.Print(arr[i][j])
+			fmt.Print(" ")
+		}
+		fmt.Println("")
+	}
+
+	for i := 0; i < width; i++ {
+		for j := 0; j < 1; j++ {
+			fmt.Print(F[i][j])
 			fmt.Print(" ")
 		}
 		fmt.Println("")
