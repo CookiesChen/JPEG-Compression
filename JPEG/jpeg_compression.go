@@ -1,6 +1,7 @@
 package JPEG
 
 import (
+	"fmt"
 	"image/jpeg"
 	"os"
 )
@@ -16,7 +17,6 @@ var(
 	heigth int
 	extendx int
 	extendy int
-	AC []nodeAC
 )
 
 type nodeF struct {
@@ -32,7 +32,7 @@ type nodeAC struct {
 
 type nodeDC struct {
 	s int // SIZE
-	a int // AMPLITUDE
+	a []int // AMPLITUDE
 }
 
 func Exec(){
@@ -121,8 +121,8 @@ func Exec(){
 		}
 	}
 
-
 	// RLC
+	var AC []nodeAC
 	for i := 0; i < width/8; i++ {
 		for j:= 0; j < heigth/8; j++ {
 			var f [8][8]nodeF
@@ -131,18 +131,20 @@ func Exec(){
 					f[k][t] = F[i*8 + k][j*8 + t]
 				}
 			}
-			RLC(f)
+			AC  = append(AC, RLC(f)...)
 		}
 	}
+	fmt.Println(AC)
 
 	// DPCM
+	var f []nodeF
 	for i := 0; i < width/8; i++ {
 		for j:= 0; j < heigth/8; j++ {
-			var f []nodeF
 			f = append(f, F[i*8][j*8])
-			DPCM(f)
 		}
 	}
+	DC := DPCM(f)
+	fmt.Print(DC)
 }
 
 func setColor(c *yuv, y int, u int, v int)  {

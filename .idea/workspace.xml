@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="290ff38b-7d1b-4469-a386-db67a4003263" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/JPEG/DPCM.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JPEG/RLC.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JPEG/quantification.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPEG/DCT.go" beforeDir="false" afterPath="$PROJECT_DIR$/JPEG/DCT.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPEG/JPEGCompression.go" beforeDir="false" afterPath="$PROJECT_DIR$/JPEG/jpeg_compression.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPEG/Twice_Sample.go" beforeDir="false" afterPath="$PROJECT_DIR$/JPEG/twice_sample.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPEG/YUV.go" beforeDir="false" afterPath="$PROJECT_DIR$/JPEG/YUV.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPEG/DPCM.go" beforeDir="false" afterPath="$PROJECT_DIR$/JPEG/DPCM.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPEG/RLC.go" beforeDir="false" afterPath="$PROJECT_DIR$/JPEG/RLC.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPEG/jpeg_compression.go" beforeDir="false" afterPath="$PROJECT_DIR$/JPEG/jpeg_compression.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,19 +54,20 @@
     <session id="51396521">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="988" />
+          <entry key="go" value="2131" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="988" />
+          <entry key="Go" value="2131" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -96,32 +92,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JPEG/jpeg_compression.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-              <folding>
-                <element signature="e#14#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JPEG/DPCM.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JPEG/DCT.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+            <state relative-caret-position="505">
+              <caret line="150" column="11" lean-forward="true" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -129,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JPEG/RLC.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-616">
-              <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            <state relative-caret-position="-893">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -138,8 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JPEG/quantification.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+            <state relative-caret-position="229">
+              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -156,7 +131,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JPEG/YUV.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
+            <state relative-caret-position="110">
               <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
             </state>
           </provider>
@@ -190,8 +165,8 @@
         <option value="$PROJECT_DIR$/JPEG/YUV.go" />
         <option value="$PROJECT_DIR$/JPEG/quantification.go" />
         <option value="$PROJECT_DIR$/JPEG/z_scan.go" />
-        <option value="$PROJECT_DIR$/JPEG/RLC.go" />
         <option value="$PROJECT_DIR$/JPEG/DPCM.go" />
+        <option value="$PROJECT_DIR$/JPEG/RLC.go" />
         <option value="$PROJECT_DIR$/JPEG/jpeg_compression.go" />
       </list>
     </option>
@@ -283,11 +258,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.13219616" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.13378684" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.3288948" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -295,7 +270,7 @@
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="5" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.39630836" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.39575034" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -337,13 +312,6 @@
     <entry file="file://$PROJECT_DIR$/img/动物照片.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/JPEG/YUV.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -351,10 +319,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JPEG/z_scan.go">
+    <entry file="file://$PROJECT_DIR$/JPEG/z_scan.go" />
+    <entry file="file://$PROJECT_DIR$/JPEG/DCT.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="484">
+          <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPEG/DPCM.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-343">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPEG/RLC.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-893">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPEG/quantification.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -365,41 +355,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JPEG/quantification.go">
+    <entry file="file://$PROJECT_DIR$/JPEG/YUV.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        <state relative-caret-position="110">
+          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JPEG/jpeg_compression.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-          <folding>
-            <element signature="e#14#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JPEG/RLC.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-616">
-          <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JPEG/DPCM.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JPEG/DCT.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+        <state relative-caret-position="505">
+          <caret line="150" column="11" lean-forward="true" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
         </state>
       </provider>
     </entry>
