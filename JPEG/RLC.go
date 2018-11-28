@@ -54,8 +54,42 @@ func changeToAC(arr []int) (AC []nodeAC) {
 		if arr[i] == 0{
 			zeroNum++
 		} else {
-			AC = append(AC, nodeAC{zeroNum, arr[i]})
+			if zeroNum > 15 {
+				extendTimes := zeroNum / 16
+				for j := 0; j < extendTimes; j++{
+					AC = append(AC, nodeAC{240, append([]int{}, 0)})
+				}
+				zeroNum = zeroNum % 16
+			}
+			num := arr[i]
+			if num < 0 {
+				count, dst := intToBits(-num)
+				AC = append(AC, nodeAC{getSymbol1(zeroNum, count), dst})
+				// 反转
+			} else if num > 0{
+				count, dst := intToBits(num)
+				AC = append(AC, nodeAC{getSymbol1(zeroNum, count), dst})
+			} else {
+				dst := append([]int{}, 0)
+				AC = append(AC, nodeAC{getSymbol1(zeroNum, 0), dst})
+			}
 		}
 	}
-	return append(AC, nodeAC{0, 0})
+	return append(AC, nodeAC{0, append([]int{}, 0)})
+}
+
+func getSymbol1(zeroNum int, count int) (rs int){
+	dst := make([]int, 0)
+	for i := 0; i < 4; i++ {
+		move := uint(3 - i)
+		dst = append(dst, int((zeroNum>>move)&1))
+	}
+	for i := 0; i < 4; i++ {
+		move := uint(3 - i)
+		dst = append(dst, int((count>>move)&1))
+	}
+	for i := 0; i < 8; i ++ {
+		rs = rs * 2 + dst[i]
+	}
+	return rs
 }
