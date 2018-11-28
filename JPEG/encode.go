@@ -1,9 +1,6 @@
 package JPEG
 
 import (
-	"fmt"
-	"image"
-	"image/color"
 	"image/jpeg"
 	"os"
 )
@@ -65,76 +62,60 @@ func Exec()(F [][]nodeF){
 		F = append(F, tempF)
 	}
 
-	newImage := image.NewRGBA(image.Rect(0,0, width, heigth))
 	// YUV颜色转换
 	for i := 0; i < width; i++ {
 		for j := 0; j < heigth; j++ {
 			r, g, b, _ := img.At(i,j).RGBA()
 			R, G, B := float32(r/257), float32(g/257), float32(b/257)
-			fmt.Println(R, G, B)
 			y, u, v := YUV(R, G, B)
-			r1, g1, b1 := antiYUV(y, u, v)
-			fmt.Println(r1, g1, b1)
-			newImage.Set(i, j, color.RGBA{R:uint8(r1), G:uint8(g1), B:uint8(b1), A:255})
 			setColor(&arr[i][j], y, u, v)
 		}
 	}
-
-	//newImage := image.NewRGBA(image.Rect(0,0, width, heigth))
-	//for i := 0; i < width; i++ {
-	//	for j := 0; j < heigth; j++ {
-	//		r, g, b := antiYUV(arr[i][j].y, arr[i][j].u, arr[i][j].v)
-	//		newImage.Set(i, j, color.RGBA{R:uint8(r), G:uint8(g), B:uint8(b)})
-	//	}
-	//}
-
-	outputfile, _ := os.Create("new.jpg")
-	jpeg.Encode(outputfile, newImage, &jpeg.Options{Quality:100})
 
 	// 二次采样
 	TwiceSample(arr[:][:])
 
 	// DCT变换
-	//for i := 0; i < width/8; i++ {
-	//	for j:= 0; j < heigth/8; j++ {
-	//
-	//		var f [8][8]yuv
-	//		for k := 0; k < 8; k++ {
-	//			for t := 0; t < 8; t++ {
-	//				f[k][t] = arr[i*8 + k][j*8 + t]
-	//			}
-	//		}
-	//
-	//		FDCT := DCT(f)
-	//
-	//		for k := 0; k < 8; k++ {
-	//			for t := 0; t < 8; t++ {
-	//				F[i*8 + k][j*8 + t] = FDCT[k][t]
-	//			}
-	//		}
-	//	}
-	//}
+	for i := 0; i < width/8; i++ {
+		for j:= 0; j < heigth/8; j++ {
+
+			var f [8][8]yuv
+			for k := 0; k < 8; k++ {
+				for t := 0; t < 8; t++ {
+					f[k][t] = arr[i*8 + k][j*8 + t]
+				}
+			}
+
+			FDCT := DCT(f)
+
+			for k := 0; k < 8; k++ {
+				for t := 0; t < 8; t++ {
+					F[i*8 + k][j*8 + t] = FDCT[k][t]
+				}
+			}
+		}
+	}
 
 	// 量化
-	//for i := 0; i < width/8; i++ {
-	//	for j:= 0; j < heigth/8; j++ {
-	//
-	//		var f [8][8]nodeF
-	//		for k := 0; k < 8; k++ {
-	//			for t := 0; t < 8; t++ {
-	//				f[k][t] = F[i*8 + k][j*8 + t]
-	//			}
-	//		}
-	//
-	//		QF := quantification(f)
-	//
-	//		for k := 0; k < 8; k++ {
-	//			for t := 0; t < 8; t++ {
-	//				F[i*8 + k][j*8 + t] = QF[k][t]
-	//			}
-	//		}
-	//	}
-	//}
+	for i := 0; i < width/8; i++ {
+		for j:= 0; j < heigth/8; j++ {
+
+			var f [8][8]nodeF
+			for k := 0; k < 8; k++ {
+				for t := 0; t < 8; t++ {
+					f[k][t] = F[i*8 + k][j*8 + t]
+				}
+			}
+
+			QF := quantification(f)
+
+			for k := 0; k < 8; k++ {
+				for t := 0; t < 8; t++ {
+					F[i*8 + k][j*8 + t] = QF[k][t]
+				}
+			}
+		}
+	}
 
 	//// RLC
 	//var AC []nodeAC

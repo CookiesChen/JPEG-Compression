@@ -1,5 +1,7 @@
 package JPEG
 
+import "math"
+
 var(
 	tableY = [8][8]int{
 		{16, 12, 14, 14, 18, 24, 49, 72},
@@ -25,9 +27,9 @@ func quantification(F [8][8]nodeF)(QF [8][8]nodeF) {
 
 	for i := 0; i < 8; i++ {
 		for j := 0; j < 8; j++ {
-			QF[i][j].yF = int(float64(F[i][j].yF) / float64(tableY[i][j]))
-			QF[i][j].uF = int(float64(F[i][j].uF) / float64(tableU[i][j]))
-			QF[i][j].vF = int(float64(F[i][j].vF) / float64(tableU[i][j]))
+			QF[i][j].yF = int(math.Round(float64(F[i][j].yF) / float64(tableY[i][j])))
+			QF[i][j].uF = int(math.Round(float64(F[i][j].uF) / float64(tableU[i][j])))
+			QF[i][j].vF = int(math.Round(float64(F[i][j].vF) / float64(tableU[i][j])))
 		}
 	}
 	return QF

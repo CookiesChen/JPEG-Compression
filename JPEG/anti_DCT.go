@@ -18,12 +18,12 @@ func antiDCT(F [8][8]nodeF) (f [8][8]yuv) {
 					var cU float64
 					var cV float64
 					if u == 0 {
-						cU = math.Sqrt(2) / 2
+						cU = math.Sqrt(2) / 2.0
 					} else {
 						cU = 1
 					}
 					if v == 0 {
-						cV = math.Sqrt(2) / 2
+						cV = math.Sqrt(2) / 2.0
 					} else {
 						cV = 1
 					}
@@ -37,9 +37,9 @@ func antiDCT(F [8][8]nodeF) (f [8][8]yuv) {
 				sumU += sumu
 				sumV += sumv
 			}
-			f[i][j].y = int(sumY)
-			f[i][j].u = int(sumU)
-			f[i][j].v = int(sumV)
+			f[i][j].y = int(math.Round(sumY))
+			f[i][j].u = int(math.Round(sumU))
+			f[i][j].v = int(math.Round(sumV))
 		}
 	}
 	return f
