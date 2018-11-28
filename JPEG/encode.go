@@ -120,8 +120,8 @@ func Exec()(F [][]nodeF){
 
 	//// RLC
 	var AC []nodeAC
-	for i := 0; i < 1; i++ {
-		for j:= 0; j < 1; j++ {
+	for i := 0; i < width/8; i++ {
+		for j:= 0; j < heigth/8; j++ {
 			var f [8][8]nodeF
 			for k := 0; k < 8; k++ {
 				for t := 0; t < 8; t++ {
@@ -132,13 +132,14 @@ func Exec()(F [][]nodeF){
 		}
 	}
 
-	//// DPCM
+	// DPCM
 	var f []nodeF
 	for i := 0; i < width/8; i++ {
 		for j:= 0; j < heigth/8; j++ {
 			f = append(f, F[i*8][j*8])
 		}
 	}
+
 	DC := DPCM(f)
 
 	//// 哈夫曼编码
@@ -154,11 +155,16 @@ func Exec()(F [][]nodeF){
 	for i, length := 0, len(AC); i < length; i++ {
 		m[AC[i].rs]++
 	}
+
 	ACTable := huffman(m)
+	fmt.Println("AC Table: ")
+	for k, v := range ACTable {
+		fmt.Println("key:", k, "code:",v)
+	}
+	var onebyte byte
+	count := 0
 	for i, length := 0, len(AC); i < length; i++ {
 		code := ACTable[AC[i].rs]
-		count := 0
-		var onebyte byte
 		for j, len1 := 0, len(code); j < len1; j++ {
 			count++
 			onebyte = onebyte << 1 + code[j]-'0'
@@ -167,7 +173,6 @@ func Exec()(F [][]nodeF){
 				data = append(data, onebyte)
 			}
 		}
-		count = 0
 		for j, len1 := 0, len(AC[i].next); j < len1; j++ {
 			count++
 			onebyte = onebyte << 1 + byte(AC[i].next[j])
@@ -177,15 +182,22 @@ func Exec()(F [][]nodeF){
 			}
 		}
 	}
+
 	m = make(map[int]int)
 	for i, length := 0, len(DC); i < length; i++ {
 		m[DC[i].s]++
 	}
+
 	DCTable := huffman(m)
+
+	fmt.Println("DC Table: ")
+	for k, v := range DCTable {
+		fmt.Println("key:", k, "code:",v)
+	}
+
+	count = 0
 	for i, length := 0, len(DC); i < length; i++ {
 		code := DCTable[DC[i].s]
-		count := 0
-		var onebyte byte
 		for j, len1 := 0, len(code); j < len1; j++ {
 			count++
 			onebyte = onebyte << 1 + code[j]-'0'

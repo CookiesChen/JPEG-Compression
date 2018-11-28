@@ -17,6 +17,7 @@ type nodeArray []node
 var codeTable map[int]string
 
 func huffman(m map[int]int)(map[int]string){
+
 	codeTable = make(map[int]string)
 	var array nodeArray
 	for k, v := range m {

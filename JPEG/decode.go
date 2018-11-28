@@ -4,6 +4,7 @@ import (
 	"image"
 	"image/color"
 	"image/jpeg"
+	"image/png"
 	"os"
 )
 
@@ -86,4 +87,6 @@ func Decode(F [][]nodeF)  {
 	outputfile, _ := os.Create("new.jpg")
 	jpeg.Encode(outputfile, newImage, &jpeg.Options{Quality:100})
 
+	outputPng, _ := os.Create("动物图片.png")
+	png.Encode(outputPng, img)
 }
