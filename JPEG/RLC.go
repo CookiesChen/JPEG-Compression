@@ -1,8 +1,11 @@
 package JPEG
 
+import "fmt"
+
 func RLC(F [8][8]nodeF)(AC []nodeAC)  {
 	zY, zU, zV := zScan(F)
 	AC = append(AC, changeToAC(zY)...)
+	fmt.Println(AC)
 	AC = append(AC, changeToAC(zU)...)
 	AC = append(AC, changeToAC(zV)...)
 	return AC
@@ -43,15 +46,14 @@ func zScan(F [8][8]nodeF)(zY []int, zU []int, zV []int) {
 			}
 		}
 	}
-
 	return zY, zU, zV
-
 }
 
 func changeToAC(arr []int) (AC []nodeAC) {
+	fmt.Println(arr)
 	zeroNum := 0
 	for i := 1; i < 64; i++ {
-		if arr[i] == 0{
+		if arr[i] == 0 && zeroNum <= 15{
 			zeroNum++
 		} else {
 			if zeroNum > 15 {
@@ -73,12 +75,14 @@ func changeToAC(arr []int) (AC []nodeAC) {
 				dst := append([]int{}, 0)
 				AC = append(AC, nodeAC{getSymbol1(zeroNum, 0), dst})
 			}
+			zeroNum = 0
 		}
 	}
 	return append(AC, nodeAC{0, append([]int{}, 0)})
 }
 
 func getSymbol1(zeroNum int, count int) (rs int){
+	fmt.Println(zeroNum, count)
 	dst := make([]int, 0)
 	for i := 0; i < 4; i++ {
 		move := uint(3 - i)
