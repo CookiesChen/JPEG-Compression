@@ -36,7 +36,7 @@ type nodeDC struct {
 }
 
 func Exec()(F [][]nodeF){
-	file, err := os.Open("img/动物卡通图片.jpg")
+	file, err := os.Open("img/动物照片.jpg")
 	if err != nil {
 		panic(err)
 	}
@@ -61,6 +61,15 @@ func Exec()(F [][]nodeF){
 		tempF := make([]nodeF, heigth + extendy)
 		arr = append(arr, tmp)
 		F = append(F, tempF)
+	}
+
+	for i := 0; i < width; i++ {
+		for j := 0; j < heigth; j++ {
+			r, g, b, _ := img.At(i,j).RGBA()
+			R, G, B := float32(r/257), float32(g/257), float32(b/257)
+			y, u, v := YUV(R, G, B)
+			setColor(&arr[i][j], y, u, v)
+		}
 	}
 
 	// YUV颜色转换
